@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FiHeart, FiTarget, FiUsers } from "react-icons/fi";
 import PageHeader from "@/components/ui/PageHeader";
+import Reveal from "@/components/ui/Reveal";
 
 export const metadata = {
   title: "About | TaskFlow",
@@ -42,7 +43,7 @@ export default function AboutPage() {
       {/* Our story */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-10 md:grid-cols-2">
-          <div>
+          <Reveal>
             <h2 className="font-heading text-3xl">Our story</h2>
             <p className="mt-4 text-brand-muted">
               TaskFlow started when a small team was tired of messy chats and
@@ -53,16 +54,18 @@ export default function AboutPage() {
               Today, hundreds of teams use TaskFlow to plan their work, share
               tasks, and finish on time.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:grid-cols-1">
-            {stats.map((stat) => (
-              <div key={stat.label} className="rounded-2xl bg-brand-card p-6">
-                <p className="font-heading text-3xl text-brand-accent">
-                  {stat.value}
-                </p>
-                <p className="mt-1 text-sm text-brand-muted">{stat.label}</p>
-              </div>
+            {stats.map((stat, index) => (
+              <Reveal key={stat.label} delay={index * 0.1} className="h-full">
+                <div className="h-full rounded-2xl bg-brand-card p-6">
+                  <p className="font-heading text-3xl text-brand-accent">
+                    {stat.value}
+                  </p>
+                  <p className="mt-1 text-sm text-brand-muted">{stat.label}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -70,17 +73,21 @@ export default function AboutPage() {
 
       {/* Values */}
       <section className="mx-auto max-w-6xl px-6 pb-20">
-        <h2 className="font-heading text-3xl">What we believe</h2>
+        <Reveal>
+          <h2 className="font-heading text-3xl">What we believe</h2>
+        </Reveal>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {values.map((item) => {
+          {values.map((item, index) => {
             const Icon = item.icon;
 
             return (
-              <div key={item.title} className="rounded-2xl bg-brand-card p-6">
-                <Icon size={28} className="text-brand-accent" />
-                <h3 className="mt-4 text-lg font-medium">{item.title}</h3>
-                <p className="mt-2 text-sm text-brand-muted">{item.text}</p>
-              </div>
+              <Reveal key={item.title} delay={index * 0.1} className="h-full">
+                <div className="h-full rounded-2xl bg-brand-card p-6">
+                  <Icon size={28} className="text-brand-accent" />
+                  <h3 className="mt-4 text-lg font-medium">{item.title}</h3>
+                  <p className="mt-2 text-sm text-brand-muted">{item.text}</p>
+                </div>
+              </Reveal>
             );
           })}
         </div>
@@ -88,18 +95,20 @@ export default function AboutPage() {
 
       {/* Call to action */}
       <section className="mx-auto max-w-6xl px-6 pb-20">
-        <div className="rounded-2xl bg-brand-card p-8 text-center md:p-12">
-          <h2 className="font-heading text-3xl">Want to see TaskFlow?</h2>
-          <p className="mx-auto mt-3 max-w-md text-brand-muted">
-            Ask for a free demo and we will show you around.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-6 inline-block rounded-full bg-brand-cream px-6 py-3 text-sm font-medium text-brand-bg"
-          >
-            Request a Demo
-          </Link>
-        </div>
+        <Reveal>
+          <div className="rounded-2xl bg-brand-card p-8 text-center md:p-12">
+            <h2 className="font-heading text-3xl">Want to see TaskFlow?</h2>
+            <p className="mx-auto mt-3 max-w-md text-brand-muted">
+              Ask for a free demo and we will show you around.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-6 inline-block rounded-full bg-brand-cream px-6 py-3 text-sm font-medium text-brand-bg"
+            >
+              Request a Demo
+            </Link>
+          </div>
+        </Reveal>
       </section>
     </>
   );
