@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="mx-auto max-w-6xl px-6 pt-6">
       <div className="relative min-h-[520px] overflow-hidden rounded-3xl">
         <Image
-          src="/hero.jpg"
+          src="/Hero.jpg"
           alt="A team working together"
           fill
           priority

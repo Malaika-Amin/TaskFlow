@@ -26,16 +26,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
+    return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
-      
-      <body>{children}
-      <Header />
-      <main>
-<Footer />
+      <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
         <FloatingButtons />
-      </main>
-        
       </body>
     </html>
   );
